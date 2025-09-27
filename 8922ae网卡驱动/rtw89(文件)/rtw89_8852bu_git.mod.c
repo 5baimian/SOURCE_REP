@@ -1,0 +1,64 @@
+#include <linux/module.h>
+#define INCLUDE_VERMAGIC
+#include <linux/build-salt.h>
+#include <linux/elfnote-lto.h>
+#include <linux/export-internal.h>
+#include <linux/vermagic.h>
+#include <linux/compiler.h>
+
+#ifdef CONFIG_UNWINDER_ORC
+#include <asm/orc_header.h>
+ORC_HEADER;
+#endif
+
+BUILD_SALT;
+BUILD_LTO_INFO;
+
+MODULE_INFO(vermagic, VERMAGIC_STRING);
+MODULE_INFO(name, KBUILD_MODNAME);
+
+__visible struct module __this_module
+__section(".gnu.linkonce.this_module") = {
+	.name = KBUILD_MODNAME,
+	.init = init_module,
+#ifdef CONFIG_MODULE_UNLOAD
+	.exit = cleanup_module,
+#endif
+	.arch = MODULE_ARCH_INIT,
+};
+
+#ifdef CONFIG_RETPOLINE
+MODULE_INFO(retpoline, "Y");
+#endif
+
+
+
+static const struct modversion_info ____versions[]
+__used __section("__versions") = {
+	{ 0x748aeeb3, "usb_register_driver" },
+	{ 0xbdfb6dbb, "__fentry__" },
+	{ 0xb7eedf0, "rtw8852b_chip_info" },
+	{ 0xc8cef79, "rtw89_usb_probe" },
+	{ 0xc61fc253, "usb_deregister" },
+	{ 0x5b8239ca, "__x86_return_thunk" },
+	{ 0x1c9a7ba2, "rtw89_usb_disconnect" },
+	{ 0xe2fd41e5, "module_layout" },
+};
+
+MODULE_INFO(depends, "rtw89_8852b_git,rtw89_usb_git");
+
+MODULE_ALIAS("usb:v0BDApB832d*dc*dsc*dp*icFFiscFFipFFin*");
+MODULE_ALIAS("usb:v0BDApB83Ad*dc*dsc*dp*icFFiscFFipFFin*");
+MODULE_ALIAS("usb:v0BDApB852d*dc*dsc*dp*icFFiscFFipFFin*");
+MODULE_ALIAS("usb:v0BDApB85Ad*dc*dsc*dp*icFFiscFFipFFin*");
+MODULE_ALIAS("usb:v0BDApA85Bd*dc*dsc*dp*icFFiscFFipFFin*");
+MODULE_ALIAS("usb:v0586p3428d*dc*dsc*dp*icFFiscFFipFFin*");
+MODULE_ALIAS("usb:v0B05p1A62d*dc*dsc*dp*icFFiscFFipFFin*");
+MODULE_ALIAS("usb:v0DB0p6931d*dc*dsc*dp*icFFiscFFipFFin*");
+MODULE_ALIAS("usb:v2001p3327d*dc*dsc*dp*icFFiscFFipFFin*");
+MODULE_ALIAS("usb:v3574p6121d*dc*dsc*dp*icFFiscFFipFFin*");
+MODULE_ALIAS("usb:v35BCp0100d*dc*dsc*dp*icFFiscFFipFFin*");
+MODULE_ALIAS("usb:v35BCp0108d*dc*dsc*dp*icFFiscFFipFFin*");
+MODULE_ALIAS("usb:v7392p6822d*dc*dsc*dp*icFFiscFFipFFin*");
+
+MODULE_INFO(srcversion, "F3341723E45E9E78071BA44");
